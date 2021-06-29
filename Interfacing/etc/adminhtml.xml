@@ -28,7 +28,7 @@
                                         <sort_order>0</sort_order>
                                         <action>interfacing/adminhtml_interfacing</action>
                                     </lovat>
-                                </children>>
+                                </children>
                             </interfacing>
                         </children>
                     </interfacing>
