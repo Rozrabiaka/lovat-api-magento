@@ -1,0 +1,85 @@
+<config>
+    <modules>
+        <Lovat_Interfacing>
+            <version>1.0.0</version>
+        </Lovat_Interfacing>
+    </modules>
+    <global>
+        <models>
+            <lovat_interfacing>
+                <class>Lovat_Interfacing_Model</class>
+            </lovat_interfacing>
+        </models>
+        <helpers>
+            <interfacing>
+                <class>Lovat_Interfacing_Helper</class>
+            </interfacing>
+        </helpers>
+        <blocks>
+            <interfacing>
+                <class>Lovat_Interfacing_Block</class>
+            </interfacing>
+        </blocks>
+        <resources>
+            <interfacing_setup>
+                <setup>
+                    <module>Lovat_Interfacing</module>
+                </setup>
+            </interfacing_setup>
+        </resources>
+        <models>
+            <interfacing>
+                <class>Lovat_Interfacing_Model</class>
+                <resourceModel>interfacing_resource</resourceModel>
+            </interfacing>
+            <interfacing_resource>
+                <class>Lovat_Interfacing_Model_Resource</class>
+                <entities>
+                    <interfacing>
+                        <table>lovat_interfacing</table>
+                    </interfacing>
+                </entities>
+            </interfacing_resource>
+        </models>
+    </global>
+    <admin>
+        <routers>
+            <interfacing>
+                <use>admin</use>
+                <args>
+                    <module>Lovat_Interfacing</module>
+                    <frontName>interfacing</frontName>
+                </args>
+            </interfacing>
+        </routers>
+    </admin>
+    <adminhtml>
+        <menu>
+            <interfacing module="interfacing">
+                <title>Lovat Api</title>
+                <sort_order>71</sort_order>
+            </interfacing>
+        </menu>
+        <acl>
+            <resources>
+                <all>
+                    <title>Allow Everything</title>
+                </all>
+                <admin>
+                    <children>
+                        <interfacing translate="title" module="interfacing">
+                            <title>Ebay Auto Purchase</title>
+                            <sort_order>71</sort_order>
+                            <children>
+                                <lovat translate="title">
+                                    <title>Manage Product Data</title>
+                                    <sort_order>0</sort_order>
+                                </lovat>
+                            </children>
+                        </interfacing>
+                    </children>
+                </admin>
+            </resources>
+        </acl>
+    </adminhtml>
+</config>

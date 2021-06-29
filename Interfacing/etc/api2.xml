@@ -1,0 +1,43 @@
+<?xml version="1.0"?>
+<config>
+    <api2>
+        <resource_groups>
+            <lovat_interfacing translate="title" module="api2">
+                <title>Lovat Api REST</title>
+                <sort_order>30</sort_order>
+                <children>
+                    <lovat_interfacing_orders translate="title" module="api2">
+                        <title>Orders</title>
+                        <sort_order>50</sort_order>
+                    </lovat_interfacing_orders>
+                </children>
+            </lovat_interfacing>
+        </resource_groups>
+        <resources>
+            <lovat_interfacing_orders translate="title" module="api2">
+                <group>lovat_interfacing</group>
+                <model>lovat_interfacing/api2_order</model>
+                <filter>lovat_interfacing/api2_order_filter</filter>
+                <title>Orders</title>
+                <sort_order>10</sort_order>
+                <versions>1</versions>
+                <routes>
+                    <route_collection>
+                        <route>/lovat_interfacing/order</route>
+                        <action_type>collection</action_type>
+                    </route_collection>
+                </routes>
+                <privileges>
+                    <guest>
+                        <retrieve>1</retrieve>
+                    </guest>
+                </privileges>
+                <attributes translate="from to p" module="lovat_interfacing">
+                    <from>Data from</from>
+                    <to>Data to</to>
+                    <p>Pagination</p>
+                </attributes>
+            </lovat_interfacing_orders>
+        </resources>
+    </api2>
+</config>

@@ -1,0 +1,9 @@
+<?xml version="1.0"?>
+<config>
+    <modules>
+        <Lovat_Interfacing>
+            <active>true</active>
+            <codePool>community</codePool>
+        </Lovat_Interfacing>
+    </modules>
+</config>
