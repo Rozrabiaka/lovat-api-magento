@@ -68,11 +68,11 @@
                 <admin>
                     <children>
                         <interfacing translate="title" module="interfacing">
-                            <title>Ebay Auto Purchase</title>
+                            <title>Lovat Api</title>
                             <sort_order>71</sort_order>
                             <children>
                                 <lovat translate="title">
-                                    <title>Manage Product Data</title>
+                                    <title>Lovat api</title>
                                     <sort_order>0</sort_order>
                                 </lovat>
                             </children>

@@ -17,8 +17,9 @@ class Lovat_Interfacing_Helper_Data extends Mage_Core_Helper_Abstract
 
 	public function importantAttributes($attributes)
 	{
-		$attributes = array('from', 'to');
-		$arr2 = array_flip($attributes);
+		$attrRequired = array('from', 'to');
+
+		$arr2 = array_flip($attrRequired);
 		$arr3 = array_diff_key($arr2, $attributes);
 		return array_diff_key($arr3, $attributes);
 	}
