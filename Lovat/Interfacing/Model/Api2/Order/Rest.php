@@ -45,12 +45,12 @@ class Lovat_Interfacing_Model_Api2_Order_Rest extends Lovat_Interfacing_Model_Ap
 					->addAttributeToFilter('main_table.created_at', array('from' => $from, 'to' => $to))
 					->addAttributeToFilter('main_table.status', array('in' => array(
 						Mage_Sales_Model_Order::STATE_COMPLETE,
-						Mage_Sales_Model_Order::STATE_CLOSED
+						Mage_Sales_Model_Order::STATE_CLOSED,
 					)));
 				$orderCollection->getSelect()->joinLeft(
 					['billingTable' => 'sales_flat_order_address'],
 					"main_table.entity_id = billingTable.parent_id AND billingTable.address_type = 'billing'",
-					['vat_id', 'country_id', 'city', 'address_type']
+					['vat_id', 'country_id', 'city', 'address_type', 'postcode']
 				);
 				$orderCollection->getSelect()->joinLeft(
 					['orderItem' => 'sales_flat_order_item'],
@@ -62,8 +62,10 @@ class Lovat_Interfacing_Model_Api2_Order_Rest extends Lovat_Interfacing_Model_Ap
 
 				if (($orderCollection->getSize() + self::COUNT_PAGE_SIZE) >= ($p * self::COUNT_PAGE_SIZE)) {
 					$data = array();
+					$orders = array();
 					$remainingData = $this->remainingAmount($from, $to, $p);
-					$data['orders'] = $orderCollection->getData();
+					if (!empty($orderCollection->getData())) array_push($orders, $orderCollection->getData());
+					$data['orders'] = $orders;
 					$data['remainingData'] = $remainingData;
 
 					return $data;
